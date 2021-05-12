@@ -1,19 +1,20 @@
 import React, { useRef, useState } from "react"
 import {Col,Row,Form, Button, Card, Alert } from "react-bootstrap"
+import {signup} from "../lib/api"
 
 export default function SignUp() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const phoneRef = useRef()
-  const distanceRef=useRef()
   const firstnameRef = useRef()
   const [stylerun, setStylerun] = useState("")
   const lastnameRef = useRef()
+  const addressRef = useRef()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [value, setValue] = useState('')
-  
+  const [distance, setDistance] = useState(0)
+  console.log(typeof(parseInt(distance) ))
  const handleChange = (val) => {
    console.log(val.target.value)
     setStylerun(val.target.value)   
@@ -22,12 +23,35 @@ export default function SignUp() {
 
   async function handleSubmit(e) {
     e.preventDefault()
+  console.log(
+  "email",emailRef.current.value,
+  "firstname", firstnameRef.current.value,
+  "lastname", lastnameRef.current.value,
+  "phone", phoneRef.current.value,
+  "password", passwordRef.current.value,
+  "password confirm", passwordConfirmRef.current.value,
+  "stylerun", stylerun,
+  "distance", distance,
+  "address", addressRef.current.value
+  )
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+
+if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passwords do not match")
     }
     try {
       setError('')
+      await signup(
+  firstnameRef.current.value,
+  lastnameRef.current.value,
+  emailRef.current.value, 
+  passwordRef.current.value,
+  passwordConfirmRef.current.value,
+  phoneRef.current.value,
+  stylerun,
+  parseInt(distance),
+  addressRef.current.value
+  )
       setLoading(true)
 
     } catch {
@@ -45,6 +69,14 @@ export default function SignUp() {
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
+             <Form.Group id="firstname">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control type="text" ref={firstnameRef} required />
+            </Form.Group>
+            <Form.Group id="lastname">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control type="text" ref={lastnameRef} required />
+            </Form.Group>
             <Form.Group id="password">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} />
@@ -57,14 +89,7 @@ export default function SignUp() {
               <Form.Label>Phone</Form.Label>
               <Form.Control format="+972 ###-####" mask="_" ref={phoneRef} required />
             </Form.Group>
-            <Form.Group id="firstname">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" ref={firstnameRef} required />
-            </Form.Group>
-            <Form.Group id="lastname">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control type="text" ref={lastnameRef} required />
-            </Form.Group>
+           
             <Form.Group id="runningpref">
               <Form.Label>Running preferences:</Form.Label>
             </Form.Group>
@@ -105,20 +130,21 @@ export default function SignUp() {
     <Form.Label as="legend" column sm={3}>Distance</Form.Label>
     <Col>
     <Form.Control 
+    
 min={1}
-            max={44}
-value={value}
-    onChange={e => setValue(e.target.value)}
+max={44}
+value={distance}
+    onChange={e => setDistance(e.target.value)}
     type="range" />
     </Col>
     <Col xs="3">
-          <Form.Control value={value}/>
+          <Form.Control value={distance}/>
         </Col>
   </Form.Group>
   </fieldset>            
   <Form.Group controlId="formGridAddress1">
     <Form.Label>Address</Form.Label>
-    <Form.Control placeholder="1234 Main St" />
+    <Form.Control ref={addressRef} placeholder="1234 Main St" />
   </Form.Group>
 
             <Button disabled={loading} className="w-100 mt-3" type="submit">

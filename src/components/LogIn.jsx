@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
+import {login} from "../lib/api"
 
 export default function Login() {
 
@@ -13,8 +14,9 @@ export default function Login() {
     if (emailRef.current.value && passwordRef.current.value) {
       try {
         setError('')
+        const loginSucceed= await login(emailRef.current.value,passwordRef.current.value)
         setLoading(true)
-        console.log(passwordRef.current.value)       
+          
       } catch {
         setError('Failed to sign in')
       }
