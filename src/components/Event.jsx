@@ -28,7 +28,7 @@ function Event () {
     }
     return (
         <div className="main-container">
-            <div className="title">𝓓𝓸 𝔂𝓸𝓾 <br></br>𝔀𝓪𝓷𝓽 𝓽𝓸 𝓻𝓾𝓷 <br></br>𝓽𝓸𝓭𝓪𝔂?</div>
+            <div className="title-main">𝓓𝓸 𝔂𝓸𝓾 <br></br>𝔀𝓪𝓷𝓽 𝓽𝓸 𝓻𝓾𝓷 <br></br>𝓽𝓸𝓭𝓪𝔂?</div>
             <button className="button2" onClick={onCreateEvent}>Create new event</button>
             <Modal
                     isOpen={modalIsOpen}

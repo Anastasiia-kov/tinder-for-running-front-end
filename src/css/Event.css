@@ -20,9 +20,10 @@ body {
         background: linear-gradient(to right, #5B86E5, #36D1DC); 
 
     }
-    .title {
+    .title-main {
         font-size: 50px;
         text-align: center;
+        margin-bottom: 150px;
     }
 
     .button2 {

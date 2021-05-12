@@ -9,6 +9,7 @@ import {
     
 } from "react-router-dom";
 import ProfilePage from './ProfilePage';
+import ChatsPage from './ChatsPage';
 
 function MainComponent() {
     return (
@@ -21,6 +22,9 @@ function MainComponent() {
        </Route> 
        <Route exact path ="/events">
             <EventsPage />
+        </Route> 
+        <Route exact path ="/chats">
+            <ChatsPage />
         </Route> 
         <Route exact path ="/profile">
             <ProfilePage />
