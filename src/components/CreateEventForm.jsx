@@ -21,7 +21,7 @@ function CreateEventForm() {
             },
             title: title
         }
-        // console.log(notify)
+        console.log(notify)
        const response = await createEvent(userId, notify)
        console.log(response.data.notify)
     }

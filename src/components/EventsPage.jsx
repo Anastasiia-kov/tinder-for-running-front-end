@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import EventList from './EventList'
 import '../css/EventsPage.css'
 
-const mokEvents = [
+export const mokEvents = [
     {
         id: 1,
         title: "Morning running",
