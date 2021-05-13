@@ -1,14 +1,14 @@
 import React from 'react'
 import Navbar from "./Navbar";
 import Event from "./Event";
-import EventsPage from './EventsPage'
+import EventsPage from '../pages/EventsPage'
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     
 } from "react-router-dom";
-import ProfilePage from './ProfilePage';
+import ProfilePage from '../pages/ProfilePage';
 
 function MainComponent() {
     return (

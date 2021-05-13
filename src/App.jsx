@@ -1,15 +1,29 @@
 import React, {useState} from 'react';
 import MainComponent from './components/MainComponent';
 import Homepage from './pages/Homepage';
+import AuthProvider,{ useAuth} from "./context/AuthContext";
 
-function App() {
+function AppRouter() {
+    let auth = useAuth();
+    console.log(auth.token)
     const [login, setLogin] = useState(true)
     return ( 
     <div>
-        {login && <MainComponent />}
-        {!login && <Homepage />}
+        <AuthProvider >
+        {auth.token && <MainComponent />}
+        {!auth.token && <Homepage />}
+        </AuthProvider > 
+
     </div>
     );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppRouter />
+    </AuthProvider>
+  );
 }
 
 export default App;

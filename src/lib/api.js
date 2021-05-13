@@ -42,5 +42,34 @@ export async function login(email, password) {
         }
     })
     return response.data;
+}
 
+export async function getUserInfo(token) {
+    const myDecodedToken = decodeToken(token);
+    console.log(myDecodedToken)
+    const response = await axios.get(`${BaseUrl}/user/${myDecodedToken.uid}`, getAuthConfig(token));
+    return response.data;
+}
+
+
+export async function UpdateUser(first_name, last_name, email, password, confirmPassword, telephone, speed, distance, location, token) {
+    const myDecodedToken = decodeToken(token);
+    const response = await axios.put(`${BaseUrl}/user/updateProfile/${myDecodedToken.uid}`, {
+        user: {
+            first_name,
+            last_name,
+            email,
+            password,
+            confirmPassword,
+            telephone,
+            sports: [{
+                running: {
+                    speed,
+                    distance,
+                    location
+                }
+            }]
+        }
+    }, getAuthConfig(token));
+    return response.data;
 }

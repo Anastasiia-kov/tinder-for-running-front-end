@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import {login} from "../lib/api"
+import { useAuth } from '../context/AuthContext'
 
 export default function Login() {
-
+  const auth = useAuth()
   const emailRef = useRef()
   const passwordRef = useRef()
   const [loading, setLoading] = useState(false)
@@ -14,7 +15,10 @@ export default function Login() {
     if (emailRef.current.value && passwordRef.current.value) {
       try {
         setError('')
-        const loginSucceed= await login(emailRef.current.value,passwordRef.current.value)
+        const { token }= await login(emailRef.current.value,passwordRef.current.value)
+        console.log(token)
+        await auth.saveToken(token)
+
         setLoading(true)
           
       } catch {

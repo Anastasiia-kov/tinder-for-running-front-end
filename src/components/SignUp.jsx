@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react"
 import {Col,Row,Form, Button, Card, Alert } from "react-bootstrap"
 import {signup} from "../lib/api"
+import { decodeToken } from "react-jwt";
+import { useAuth } from '../context/AuthContext'
 
 export default function SignUp() {
   const emailRef = useRef()
@@ -11,6 +13,12 @@ export default function SignUp() {
   const [stylerun, setStylerun] = useState("")
   const lastnameRef = useRef()
   const addressRef = useRef()
+  const [file, setFiles] = useState(null)
+  const pictureUrl = useRef()
+    const auth = useAuth()
+
+  const formData = new FormData()
+
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [distance, setDistance] = useState(0)
@@ -22,7 +30,8 @@ export default function SignUp() {
 
 
   async function handleSubmit(e) {
-    e.preventDefault()
+  e.preventDefault()
+  formData.append('profile_picture', file)
   console.log(
   "email",emailRef.current.value,
   "firstname", firstnameRef.current.value,
@@ -41,7 +50,7 @@ if (passwordRef.current.value !== passwordConfirmRef.current.value) {
     }
     try {
       setError('')
-      await signup(
+      const response1 = await signup(
   firstnameRef.current.value,
   lastnameRef.current.value,
   emailRef.current.value, 
@@ -52,8 +61,20 @@ if (passwordRef.current.value !== passwordConfirmRef.current.value) {
   parseInt(distance),
   addressRef.current.value
   )
-      setLoading(true)
 
+  console.log(response1)
+  if (response1){
+
+  const response = await fetch(`http://0.0.0.0:8080/SignUp/picture_url`,
+        {
+          method: 'PUT',
+          body: formData,
+          headers:new Headers({'Authorization': response1.token}) 
+        })
+      const data = await response.json()
+      console.log(data)
+      }
+  setLoading(true)
     } catch {
       setError('Failed to create an account')
     }
@@ -146,6 +167,9 @@ value={distance}
     <Form.Label>Address</Form.Label>
     <Form.Control ref={addressRef} placeholder="1234 Main St" />
   </Form.Group>
+     <Form.Group>
+              <Form.File id="exampleFormControlFile1" onChange={() => setFiles(pictureUrl.current.files[0])} ref={pictureUrl} label="Example file input" />
+            </Form.Group>
 
             <Button disabled={loading} className="w-100 mt-3" type="submit">
               Sign Up
