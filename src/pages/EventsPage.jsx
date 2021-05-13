@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import EventList from './EventList'
+import EventList from '../components/EventList'
 import '../css/EventsPage.css'
 
 export const mokEvents = [

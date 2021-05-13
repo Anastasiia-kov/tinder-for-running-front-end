@@ -4,7 +4,7 @@ import { useState } from "react";
 import MySignUpModal from "../components/ModalSignUp"
 import MyLogInModal from "../components/ModalLogIn"
 import EventList from '../components/EventList'
-import {mokEvents} from '../components/EventsPage'
+import {mokEvents} from './EventsPage'
 import '../css/HomePage.css'
 
 export default function Homepage() {

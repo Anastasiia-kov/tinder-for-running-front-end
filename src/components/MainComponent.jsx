@@ -8,7 +8,7 @@ import {
     Route,
     
 } from "react-router-dom";
-import ProfilePage from './ProfilePage';
+import ProfilePage from '../pages/ProfilePage';
 import ChatsPage from './ChatsPage';
 
 function MainComponent() {
