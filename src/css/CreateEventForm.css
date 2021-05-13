@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+@media only screen and (min-width: 401px) {
+body {
+    display: none;
+}
+}
+
+
+@media only screen and (max-width: 400px) {
+    .main-container2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .title {
+        font-family: 'Roboto';
+        font-size: 40px;
+        margin-bottom: 50px;
+    }
+    .eventlabel {
+        font-size: 30px;
+        font-family: 'Roboto';
+    }
+
+    .m-20 {
+        margin-top: 20px;
+    }
+
+    input {
+        height: 46px;
+        width: 308px;
+        font-family: 'Roboto';
+        font-size: 25px;
+    }
+}
