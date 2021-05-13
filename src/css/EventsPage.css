@@ -15,4 +15,15 @@ body {
         background: linear-gradient(to right, #5B86E5, #36D1DC);
         height: 100vh;
     }
+
+    .toggle-btn {
+        background: none;
+        border: none;
+        text-decoration: underline 2px;
+        color: white;
+        font-weight: 800;
+        font-size: 20px;
+        margin-left: 180px;
+        margin-bottom: 20px;
+    }
 }

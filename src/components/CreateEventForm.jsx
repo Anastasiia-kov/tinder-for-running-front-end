@@ -13,12 +13,15 @@ function CreateEventForm() {
         event.preventDefault()
         const userId = 'sdfdsfdsffbajhfg64tgekyfgggfsy'
         const notify = {
-            title: title,
-            time: time,
-            distance: distance,
-            speed: speed,
-            location: location
+            running: {
+                distance: [ distance ],
+                speed: speed,
+                location: location,
+                Date: time
+            },
+            title: title
         }
+        // console.log(notify)
        const response = await createEvent(userId, notify)
        console.log(response.data.notify)
     }

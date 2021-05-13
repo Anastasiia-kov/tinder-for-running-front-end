@@ -20,9 +20,25 @@ const mokEvents = [
 ]
 
 function EventsPage (){
-    const [events, setEvents] = useState(mokEvents)
+    const [events, setEvents] = useState([])
+    const [myEvents, setMyEvents] = useState(true)
+    const [btnValue, setBtnValue] = useState('See all events')
+
+    const onChangeEvents = () => {
+        if (myEvents) {
+            setBtnValue('See my events')
+            setEvents(mokEvents)
+            setMyEvents(false)
+        }
+        if(!myEvents) {
+            setBtnValue('See all events')
+            setEvents([])
+            setMyEvents(true)
+        }
+    }
     return(
         <div className="container">
+            <button className="toggle-btn" onClick={onChangeEvents}>{btnValue}</button>
             <EventList events={events}></EventList>
         </div>
     )
