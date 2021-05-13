@@ -3,6 +3,9 @@ import { Button, Container,Row,Col } from "react-bootstrap"
 import { useState } from "react";
 import MySignUpModal from "../components/ModalSignUp"
 import MyLogInModal from "../components/ModalLogIn"
+import EventList from '../components/EventList'
+import {mokEvents} from '../components/EventsPage'
+import '../css/HomePage.css'
 
 export default function Homepage() {
     const [modalShow, setModalShow] = useState(false);
@@ -12,16 +15,10 @@ export default function Homepage() {
    
   
         return (
-            <div>
-                <Container>
-                <Row>
+            <div className="main-container">
                 <h1>Welcome to Tinder Sport Page</h1>
-                <Col>
-                <Button variant="primary" size="lg" onClick={() => setModalShowLogIn(true)}>Log In</Button>{' '}
-                </Col>
-                <Col>
-                <Button variant="primary" size="lg" onClick={() => setModalShow(true)}>Sign Up</Button>
-                </Col>
+                <button className="log-sign-btn" onClick={() => setModalShowLogIn(true)}>Log In</button>{' '}
+                <button  className="log-sign-btn" onClick={() => setModalShow(true)}>Sign Up</button>
                 <MySignUpModal
                     show={modalShow}
                     onHide={() => setModalShow(false)}
@@ -30,8 +27,7 @@ export default function Homepage() {
                     show={modalShowLogIn}
                     onHide={() => setModalShowLogIn(false)}
                 />
-                </Row>
-                </Container>
+                <EventList events={mokEvents}></EventList>
             </div>
         )
     
