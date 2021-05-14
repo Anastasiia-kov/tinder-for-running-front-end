@@ -5,7 +5,7 @@ import localforage from 'localforage';
 
 export const AuthContext = React.createContext({
   isInitiallyLoaded: false,
-
+  user: '',
   token: '',
   saveToken: async (token) => { },
   removeToken: async () => { }

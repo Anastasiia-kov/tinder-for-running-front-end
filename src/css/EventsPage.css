@@ -14,6 +14,7 @@ body {
         background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC); 
         background: linear-gradient(to right, #5B86E5, #36D1DC);
         height: 100vh;
+        overflow: scroll;
     }
 
     .toggle-btn {

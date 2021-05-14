@@ -1,8 +1,11 @@
 import React from 'react'
+import Chat from './Chat'
 
 function ChatsPage() {
     return (
-        <div>Chats</div>
+        <div>
+            <Chat></Chat>
+        </div>
     )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from "./Navbar";
-import Event from "./Event";
+import Event from "./events/Event";
 import EventsPage from '../pages/EventsPage'
 import {
     BrowserRouter as Router,
@@ -9,7 +9,8 @@ import {
     
 } from "react-router-dom";
 import ProfilePage from '../pages/ProfilePage';
-import ChatsPage from './ChatsPage';
+import ChatsPage from './Chats/ChatsPage';
+import Chat from './Chats/Chat'
 
 function MainComponent() {
     return (
@@ -25,6 +26,9 @@ function MainComponent() {
         </Route> 
         <Route exact path ="/chats">
             <ChatsPage />
+        </Route> 
+        <Route exact path ="/chat">
+            <Chat/>
         </Route> 
         <Route exact path ="/profile">
             <ProfilePage />

@@ -18,7 +18,7 @@ export default function Login() {
         const { token }= await login(emailRef.current.value,passwordRef.current.value)
         console.log(token)
         await auth.saveToken(token)
-
+        
         setLoading(true)
           
       } catch {
