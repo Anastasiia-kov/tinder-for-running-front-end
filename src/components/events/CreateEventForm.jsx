@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../../css/CreateEventForm.css'
 import { createEvent } from '../../lib/event'
 import { useAuth } from '../../context/AuthContext'
+import {useHistory} from 'react-router-dom'
 
 function CreateEventForm() {
     const auth = useAuth()
@@ -10,6 +11,7 @@ function CreateEventForm() {
     const [distance, setDistance] = useState('')
     const [location, setLocation] = useState('')
     const [speed, setSpeed] = useState('')
+    const history = useHistory();
 
     const formSubmit = async (event) => {
         event.preventDefault()
@@ -24,6 +26,8 @@ function CreateEventForm() {
         }
         console.log(auth.token)
         const response = await createEvent(notify, auth.token)
+        let path = '/events'
+        history.push(path)
         console.log(response.data.notify)
     }
     return (

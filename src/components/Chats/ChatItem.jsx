@@ -19,14 +19,14 @@ function ChatItem (props) {
         getAccepter()
     }, [])
     return (
-        <Link to='/chat'>
+        <Link to='/chat' className='link'>
             {/* <hr></hr> */}
         <div className="chat-container">
         <img src={user.picture} className="user-picture"></img>
-        <div>{user.first_name}</div>
-        <div>{user.last_name}</div>
+        <div className="user-name">{user.first_name} {user.last_name}</div>
+        {/* <div>{user.last_name}</div> */}
         </div>
-        <hr></hr>
+        <hr className="line"></hr>
         </Link>
  
     )
