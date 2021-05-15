@@ -10,14 +10,17 @@ body {
 
 @media only screen and (max-width: 400px) {
     .log-sign-btn {
-        background-color: transparent;
-        border: 2px solid white;
+        background-color: #363A44;;
+        border: 2px solid #363A44;;
         border-radius: 6px;
         color: white;
         height: 40px;
         width: 120px;
         font-size: 25px;
         margin: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .t-homepage {

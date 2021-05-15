@@ -8,8 +8,8 @@ function MessageItem(props) {
         <div className="message-container">
             <div className="user-icon">U</div>
             <div className="message-body">
-                <div className="message-date">{message.createdDate}</div>
-                <div className="message-text">{message.body}</div>
+                <div className="message-date">{message.date}</div>
+                <div className="message-text">{message.content}</div>
             </div>
         </div>
     )

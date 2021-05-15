@@ -74,3 +74,9 @@ export async function UpdateUser(first_name, last_name, email, password, confirm
     }, getAuthConfig(token));
     return response.data;
 }
+
+export async function getUserById (accepterId, token) {
+    const myDecodedToken = decodeToken(token);
+    const response = await axios.get(`${BaseUrl}/user/${accepterId}`, getAuthConfig(token))
+    return response
+}

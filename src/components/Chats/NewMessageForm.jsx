@@ -1,20 +1,37 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import '../../css/NewMessageForm.css'
 import { useAuth } from '../../context/AuthContext'
+import {
+    decodeToken
+} from "react-jwt";
+import {getUserById} from '../../lib/api'
+import {postNewMessage} from '../../lib/chat'
 
 function NewMessageForm (props) {
     const auth = useAuth()
     const [text, setText] = useState('')
+    const [user, setUser] = useState('')
+    const chatId = "609e868df0baa3c45be3b239"
 
-    const handleFormSubmit = (event) => {
+    const getSender = async () => {
+        const myDecodedToken = decodeToken(auth.token);
+        const response = await getUserById (myDecodedToken.uid, auth.token)
+        console.log(response.data)
+        setUser(response.data)
+    }
+    useEffect(() => {
+        getSender()
+    }, [])
+
+    const handleFormSubmit = async (event) => {
         event.preventDefault()
-        const newMessage = {
-            id: Date.now(),
-            body: text,
-            createdDate: Date.now(),
-            userId: auth.id
+        const post = {
+            creator_id: user._id,
+            creator_name: user.first_name,
+            content: text
         }
-        props.onNewMessage(newMessage)
+        await postNewMessage (chatId, auth.token, post)
+        props.onNewMessage(post)
         setText('')
     }
     return (

@@ -1,10 +1,26 @@
-import React from 'react'
-import Chat from './Chat'
+import React, {useEffect, useState} from 'react'
+import ChatsList from './ChatsList'
+import { useAuth } from '../../context/AuthContext'
+import {getAllChatsOfUser} from '../../lib/chat'
+import '../../css/ChatsPage.css'
 
 function ChatsPage() {
+    const auth = useAuth()
+    const [ chats, setChats ] = useState([])
+
+    const getAllChats = async () => {
+        const response = await getAllChatsOfUser(auth.token)
+        console.log(response.data)
+        const arr = response.data
+        const arrReverse = arr.reverse()
+        setChats(arrReverse)
+    }
+    useEffect(() => {
+        getAllChats()
+    }, [])
     return (
-        <div>
-            <Chat></Chat>
+        <div className="chats-container">
+            <ChatsList chats={chats}></ChatsList>
         </div>
     )
 }

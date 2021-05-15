@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link to="/chats">Chats</Link>
           <Link to="/profile">Profile</Link>
            </div>
-        {auth.token && <Button className="" variant="primary" size="md" type="submit" onClick={handleSignOut}>Log Out</Button>}
+        {auth.token && <button className="log-out-btn" type="submit" onClick={handleSignOut}>Log Out</button>}
 
       </div>
         </div>

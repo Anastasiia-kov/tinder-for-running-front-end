@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import ProfilePage from '../pages/ProfilePage';
 import ChatsPage from './Chats/ChatsPage';
-import Chat from './Chats/Chat'
+import ChatPage from './Chats/ChatPage'
 
 function MainComponent() {
     return (
@@ -28,7 +28,7 @@ function MainComponent() {
             <ChatsPage />
         </Route> 
         <Route exact path ="/chat">
-            <Chat/>
+            <ChatPage />
         </Route> 
         <Route exact path ="/profile">
             <ProfilePage />
