@@ -1,42 +1,40 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 @media only screen and (min-width: 401px) {
-body {
+  body {
     display: none;
+  }
 }
-}
-
 
 @media only screen and (max-width: 400px) {
-    .event-item-container {
-        border: 2px solid black;
-        border-radius: 6px;
-        border-style: dashed;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        font-family: 'Creepster';
-        font-size: 25px;
+  .event-item-container {
+    border: 2px solid black;
+    border-radius: 6px;
+    border-style: dashed;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Creepster";
+    font-size: 25px;
+  }
+  .event-title {
+    font-family: "Creepster";
+    font-size: 30px;
+  }
 
-    }
-    .event-title {
-        font-family: 'Creepster';
-        font-size: 30px;
-    }
+  .contact-btn {
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+  }
 
-    .contact-btn {
-        background-color: white;
-        border: none;
-        border-radius: 6px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        font-size: 15px;
-    }
-
-    .t-d {
-        margin: 20px;
-    }
+  .t-d {
+    margin: 20px;
+  }
 }
