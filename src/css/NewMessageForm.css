@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+@media only screen and (min-width: 401px) {
+body {
+    display: none;
+}
+}
+
+
+@media only screen and (max-width: 400px) {
+    .message-form {
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 26px 20px 26px 48px;
+    }
+
+    .message-input {
+        border: none;
+        height: 25px;
+        color: #363A44;
+        flex-grow: 1
+    }
+
+    .message-button {
+        background-image: url('../Icons/send-btn.png');
+        background-size: cover;
+        border: none;
+        width: 22px;
+        height: 20px;
+        color: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .line{
+        margin: 0;
+    }
+}

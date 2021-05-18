@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+@media only screen and (min-width: 401px) {
+body {
+    display: none;
+}
+}
+
+
+@media only screen and (max-width: 400px) {
+    .message-container {
+        display: flex;
+        padding: 10px;
+    }
+
+    .user-icon {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #363A44;
+        color: #ffffff;
+        margin-inline-end: 12px;
+        margin-top: 29px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .message-date {
+        opacity: 0.5;
+        font-size: 11px;
+        margin-bottom: 13px;
+    }
+
+    .message-text {
+        background-color: #363A44;
+        color: #fff;
+        border-radius: 20px;
+        padding: 9px 16px;
+        font-size: 15px;
+        max-width: 270px;
+    }
+}

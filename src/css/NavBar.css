@@ -10,9 +10,9 @@ body {
 
 @media only screen and (max-width: 400px) {
   .navbar {
-    background: #36D1DC;  
-    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC); 
-    background: linear-gradient(to right, #5B86E5, #36D1DC);
+    background: #363A44;  
+    /* background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC); 
+    background: linear-gradient(to right, #5B86E5, #36D1DC); */
   }
   .dropbtn {
     background: none;
@@ -29,9 +29,9 @@ body {
   .icon {
     height: 35px;
     width: 35px;
-    background: #36D1DC;  
-    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC); 
-    background: linear-gradient(to right, #5B86E5, #36D1DC);
+    background-color: #363A44;  
+    /* background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC); 
+    background: linear-gradient(to right, #5B86E5, #36D1DC); */
   }
   
   .dropdown {
@@ -42,23 +42,32 @@ body {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color:rgb(71, 214, 214);
+    background-color:#747579;
     border-radius: 6px;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    color: #fff
   }
   
   .dropdown-content a {
-    color: black;
+    color: #fff;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
   
-  .dropdown-content a:hover {background-color: rgb(44, 160, 238); color: #ffff}
+  .dropdown-content a:hover {background-color: #363A44;; color: #ffff}
   
   .dropdown:hover .dropdown-content {display: block;}
+
+  .log-out-btn {
+    border: none;
+    background-color: #363A44;
+    color: #fff;
+    margin-left: 230px;
+    font-size: 20px;
+  }
   
   }
 

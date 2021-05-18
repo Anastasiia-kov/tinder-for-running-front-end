@@ -10,7 +10,7 @@ body {
 
 @media only screen and (max-width: 400px) {
     .event-item-container {
-        border: 2px solid white;
+        border: 2px solid black;
         border-radius: 6px;
         border-style: dashed;
         margin-bottom: 20px;

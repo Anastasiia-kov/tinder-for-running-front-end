@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import '../css/Event.css'
+import '../../css/Event.css'
 import Modal from 'react-modal';
 import CreateEventForm from './CreateEventForm';
 

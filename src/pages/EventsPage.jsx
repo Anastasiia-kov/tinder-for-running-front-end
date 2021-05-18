@@ -1,42 +1,40 @@
-import React, {useState} from 'react'
-import EventList from '../components/EventList'
+import React, { useEffect, useState } from 'react'
+import EventList from '../components/events/EventList'
 import '../css/EventsPage.css'
+import { useAuth } from '../context/AuthContext'
+import { getAllEventsFromDB, getAllEventsOfUser } from '../lib/event'
 
-export const mokEvents = [
-    {
-        id: 1,
-        title: "Morning running",
-        time: '8:00',
-        distance: '12 km',
-        location: 'Tel-Aviv Port'
-    },
-    {
-        id: 2,
-        title: "Evening running",
-        time: '20:00',
-        distance: '4 km',
-        location: 'Yaffo Port'
-    }
-]
-
-function EventsPage (){
+function EventsPage() {
+    const auth = useAuth()
     const [events, setEvents] = useState([])
     const [myEvents, setMyEvents] = useState(true)
     const [btnValue, setBtnValue] = useState('See all events')
 
-    const onChangeEvents = () => {
+    const getEventsOfUser = async () => {
+        const response = await getAllEventsOfUser(auth.token)
+        console.log(response.data)
+        setEvents(response.data)  
+    }
+
+    useEffect(() => {
+        getEventsOfUser()
+    }, []) 
+
+    const onChangeEvents = async () => {
         if (myEvents) {
             setBtnValue('See my events')
-            setEvents(mokEvents)
             setMyEvents(false)
+            const response = await getAllEventsFromDB(auth.token)
+            console.log(response.data)
+            setEvents(response.data)
         }
-        if(!myEvents) {
+        if (!myEvents) {
             setBtnValue('See all events')
-            setEvents([])
+            getEventsOfUser()
             setMyEvents(true)
         }
     }
-    return(
+    return (
         <div className="container">
             <button className="toggle-btn" onClick={onChangeEvents}>{btnValue}</button>
             <EventList events={events}></EventList>

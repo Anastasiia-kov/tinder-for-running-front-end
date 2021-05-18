@@ -6,7 +6,7 @@ function EventList (props) {
             <div>
                 {props.events.map((event) => {
                     return <EventItem
-                        key={event.id}
+                        key={event._id}
                         event={event}
                     ></EventItem>
                 })}
