@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import "../../css/Event.css";
 import Modal from "react-modal";
 import CreateEventForm from "./CreateEventForm";
-import { getAllEventsFromDB } from "../../lib/event";
+import { getAllEventsFromDB, addUserIdResponse } from "../../lib/event";
 import { useAuth } from "../../context/AuthContext";
 import SwipeList from "./SwipeList";
 import axios from "axios";
 import { creatChat } from "../../lib/chat";
 import { useHistory } from "react-router-dom";
+import { decodeToken } from "react-jwt";
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -27,8 +28,13 @@ function Event() {
   const auth = useAuth();
   const getEventsOfUser = async () => {
     const response = await getAllEventsFromDB(auth.token);
-    setEvents(response.data);
-    // console.log(response.data);
+    const result = response.data.filter((item) => {
+      return (
+        item.response.find((item) => item === decodeToken(auth.token).uid) !==
+        decodeToken(auth.token).uid
+      );
+    });
+    setEvents(result);
   };
   const history = useHistory();
   useEffect(() => {
@@ -44,31 +50,22 @@ function Event() {
   };
 
   const Change = async (index, info) => {
-    // console.log("the index and info from the swipe event");
-    // console.log(index);
-    // console.log(info);
     const swipe = index === 2 ? "Swiped left" : "Swiped right";
-    console.log(info);
-
-    console.log(`you ${swipe} ${info.title}`);
-    // axios.put("POST") to add put request to add token, notificationID
-    // and to edit the request (with filter when useID === to the )
-    // const newEvents = events.shift()
-    // info.userId
 
     setEvents(events.slice(1));
 
     const creatChatwithUser = async () => {
       //create chat with user who created a notify
       const response = await creatChat(auth.token, info.userId);
-      console.log(response.data._id);
+
       let path = `/chat/${response.data._id}`;
       history.push(path);
     };
+
+    await addUserIdResponse(auth.token, info._id);
     if (index === 0) {
-      //   await creatChatwithUser();
-      //   window.alert("congratulation ! you created a new chat !");
-      window.alert("we temporarily disabled the create chat funtion");
+      await creatChatwithUser();
+      window.alert("congratulation ! you created a new chat !");
     }
   };
 
