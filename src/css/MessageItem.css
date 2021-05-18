@@ -13,6 +13,11 @@ body {
         display: flex;
         padding: 10px;
     }
+    .message-container-2 {
+        display: flex;
+        padding: 10px;
+        flex-direction: row-reverse;
+    }
 
     .user-icon {
         height: 40px;
@@ -22,6 +27,7 @@ body {
         color: #ffffff;
         margin-inline-end: 12px;
         margin-top: 29px;
+        margin-left: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
