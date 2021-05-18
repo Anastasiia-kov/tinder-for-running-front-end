@@ -12,6 +12,12 @@ body {
     .chat {
         height: 100vh;
         display: grid;
-        grid-template-rows: 1fr auto;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .accepter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

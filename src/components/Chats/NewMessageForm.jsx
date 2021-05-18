@@ -17,7 +17,6 @@ function NewMessageForm(props) {
     const getSender = async () => {
         const myDecodedToken = decodeToken(auth.token);
         const response = await getUserById(myDecodedToken.uid, auth.token)
-        console.log(response.data)
         setUser(response.data)
     }
     useEffect(() => {
