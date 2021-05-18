@@ -27,7 +27,7 @@ function MainComponent() {
         <Route exact path ="/chats">
             <ChatsPage />
         </Route> 
-        <Route exact path ="/chat">
+        <Route exact path ="/chat/:chatId">
             <ChatPage />
         </Route> 
         <Route exact path ="/profile">

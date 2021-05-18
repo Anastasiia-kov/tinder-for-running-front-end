@@ -9,8 +9,8 @@ export async function createEvent (notify, token) {
     return response
 }
 
-export async function getAllEventsFromDB () {
-    const response = axios.get(`${BaseUrl}/notify`)
+export async function getAllEventsFromDB (token) {
+    const response = axios.get(`${BaseUrl}/notify`, getAuthConfig(token))
     return response
 }
 

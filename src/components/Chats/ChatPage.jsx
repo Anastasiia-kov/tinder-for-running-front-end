@@ -4,6 +4,7 @@ import NewMessageForm from './NewMessageForm'
 import '../../css/Chat.css'
 import { useAuth } from '../../context/AuthContext'
 import {getChatById} from '../../lib/chat'
+import { withRouter } from 'react-router-dom';
 
 const users = [
     { userId: 123, name: 'Jane'},
@@ -19,13 +20,14 @@ const chats = [
     { id: 4, body: 'goodsdfsfsdkfhbsdkhf', createdDate: Date.now(), userId: 126}
 ]
 
-function ChatPage() {
+function ChatPage(props) {
     const auth = useAuth()
     const [messages, setMessages] = useState([])
-    const chatId = "609e868df0baa3c45be3b239"
+    // const chatId = "609e868df0baa3c45be3b239"
+    const { match: { params } } = props;
 
     const getChat = async () => {
-        const response = await getChatById(chatId, auth.token)
+        const response = await getChatById(params.chatId, auth.token)
         console.log(response.data.posts)
         setMessages(response.data.posts)
     }
@@ -39,6 +41,7 @@ function ChatPage() {
 
     useEffect(() => {
         getChat()
+        console.log(params.chatId)
     }, [])
 
     const handleonNewMessage = (post) => {
@@ -48,9 +51,12 @@ function ChatPage() {
     return(
         <div className="chat">
             <MessagesList messages={messages}/>
-            <NewMessageForm onNewMessage={handleonNewMessage}></NewMessageForm>
+            <NewMessageForm 
+            onNewMessage={handleonNewMessage}
+            chatId={params.chatId}></NewMessageForm>
         </div>
     )
 }
 
-export default ChatPage
+
+export default withRouter(ChatPage)
