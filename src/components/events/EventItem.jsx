@@ -12,15 +12,15 @@ function EventItem (props) {
     const creatChatwithUser = async () => {
         //create chat with user who created a notify
         const response = await creatChat(auth.token, accepterId)
-        console.log(response.data)
-        let path = '/chat'
+        console.log(response.data._id)
+        let path = `/chat/${response.data._id}`
         history.push(path)
     }
     return (
         <div className="event-item-container">
     <div className="event-title">{props.event.title}</div>
     <div className="d-flex">
-    <div className="t-d">{props.event.running.Date}</div>
+    <div className="t-d">{props.event.running.date}</div>
     <div className="t-d">{props.event.running.distance} km</div>
     </div>
     <div>{props.event.running.location}</div>

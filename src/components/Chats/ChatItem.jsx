@@ -3,23 +3,40 @@ import { useAuth } from '../../context/AuthContext'
 import {getUserById} from '../../lib/api'
 import {Link} from 'react-router-dom'
 import '../../css/ChatItem.css'
+import {
+    decodeToken
+} from "react-jwt";
 
 function ChatItem (props) {
     const auth = useAuth()
     const { chat } = props
     const [user, setUser] = useState('')
+    const myDecodedToken = decodeToken(auth.token);
+    const senderId = myDecodedToken.uid
 
     const getAccepter = async () => {
-        const response = await getUserById (chat.accept_user_id, auth.token)
+        let accepterId = '';
+        if (senderId === chat.send_user_id) {
+            accepterId = chat.accept_user_id
+        }
+        if (senderId !== chat.send_user_id) {
+            accepterId = chat.send_user_id
+        }
+        const response = await getUserById (accepterId, auth.token)
         console.log(response.data)
         setUser(response.data)
     }
 
+    let link = `/chat/${chat._id}`;
+
     useEffect(() => {
+        console.log(chat._id)
         getAccepter()
     }, [])
     return (
-        <Link to='/chat' className='link'>
+        <Link 
+        to={link} 
+        className='link'>
             {/* <hr></hr> */}
         <div className="chat-container">
         <img src={user.picture} className="user-picture"></img>
