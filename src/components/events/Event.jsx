@@ -6,6 +6,8 @@ import { getAllEventsFromDB } from "../../lib/event";
 import { useAuth } from "../../context/AuthContext";
 import SwipeList from "./SwipeList";
 import axios from "axios";
+import { creatChat } from "../../lib/chat";
+import { useHistory } from "react-router-dom";
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -28,7 +30,7 @@ function Event() {
     setEvents(response.data);
     // console.log(response.data);
   };
-
+  const history = useHistory();
   useEffect(() => {
     getEventsOfUser();
   }, []);
@@ -41,7 +43,7 @@ function Event() {
     setIsOpen(false);
   };
 
-  const Change = (index, info) => {
+  const Change = async (index, info) => {
     // console.log("the index and info from the swipe event");
     // console.log(index);
     // console.log(info);
@@ -55,7 +57,21 @@ function Event() {
     // info.userId
 
     setEvents(events.slice(1));
+
+    const creatChatwithUser = async () => {
+      //create chat with user who created a notify
+      const response = await creatChat(auth.token, info.userId);
+      console.log(response.data._id);
+      let path = `/chat/${response.data._id}`;
+      history.push(path);
+    };
+    if (index === 0) {
+      //   await creatChatwithUser();
+      //   window.alert("congratulation ! you created a new chat !");
+      window.alert("we temporarily disabled the create chat funtion");
+    }
   };
+
   return (
     <div className="main-container">
       <SwipeList
