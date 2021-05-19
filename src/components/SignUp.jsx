@@ -21,13 +21,9 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState([])
   const [distance, setDistance] = useState(0)
-<<<<<<< HEAD
  
   const handleChange = (val) => {
    console.log(val.target.value)
-=======
- const handleChange = (val) => {
->>>>>>> 6e1cd49e9d65e032b984354716a2c8ce6cf2ed6f
     setStylerun(val.target.value)   
     };
 
