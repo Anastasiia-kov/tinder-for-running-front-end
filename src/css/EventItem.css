@@ -63,8 +63,35 @@
     background-size: cover;
     margin-top: 20px;
   }
-/* 
-  .t-d {
-    margin: 20px;
-  } */
+
+  .d-none{
+    display: none;
+  }
+
+  .user-photo-page {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+
+  .event-item-container-page {
+    border: #fff;
+    background-color: #eec5e7;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  .event-title-page {
+    font-size: 23px;
+    font-weight: bold;
+  }
+
+  .contact-btn-page {
+    background-color:  #DD35AE;
+    border: none;
+    border-radius: 6px;
+    color:  #D2C4C4;;
+  }
 }

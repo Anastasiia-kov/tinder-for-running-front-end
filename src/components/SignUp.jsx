@@ -19,9 +19,11 @@ export default function SignUp() {
   const formData = new FormData()
 
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [error, setError] = useState([])
   const [distance, setDistance] = useState(0)
- const handleChange = (val) => {
+ 
+  const handleChange = (val) => {
+   console.log(val.target.value)
     setStylerun(val.target.value)   
     };
 
@@ -58,20 +60,28 @@ if (passwordRef.current.value !== passwordConfirmRef.current.value) {
   parseInt(distance),
   addressRef.current.value
   )
-
-  if (response1){
-
-  const response = await fetch(`http://0.0.0.0:8080/SignUp/picture_url`,
+  
+  if (response1 && file){
+      const response = await fetch(`http://0.0.0.0:4000/SignUp/picture_url`,
         {
           method: 'PUT',
           body: formData,
           headers:new Headers({'Authorization': response1.token}) 
         })
-      await response.json()
-      }
-  setLoading(true)
-    } catch {
-      setError('Failed to create an account')
+        
+          const data = await response.json()
+          console.log(data)
+          alert('Account has been created successfully with picture');
+
+        window.location.reload()}
+else { 
+  alert('Account has been created successfully');
+  window.location.reload() }
+  
+      
+    setLoading(true)
+    } catch (err) {
+      setError(err.response.data)
     }
     setLoading(false)
   }
@@ -79,7 +89,7 @@ if (passwordRef.current.value !== passwordConfirmRef.current.value) {
     <>
       <Card>
         <Card.Body>
-          {error && <Alert variant="danger">{error}</Alert>}
+        
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
@@ -165,10 +175,12 @@ value={distance}
      <Form.Group>
               <Form.File id="exampleFormControlFile1" onChange={() => setFiles(pictureUrl.current.files[0])} ref={pictureUrl} label="Example file input" />
             </Form.Group>
+            {error && <Alert variant="danger">{error}</Alert>}
 
             <Button disabled={loading} className="w-100 mt-3" type="submit">
               Sign Up
             </Button>
+
           </Form>
         </Card.Body>
       </Card>

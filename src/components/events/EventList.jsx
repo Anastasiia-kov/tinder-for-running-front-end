@@ -10,12 +10,13 @@ function EventList (props) {
                         event={event}
                         container="event-item-container-page"
                         eventTitle="event-title-page"
-                        contactBtn="contact-btn"
-                        userPhoto="user-photo"
-                        infoCont="info-container"
-                        swipe="swipe"
-                        icon="icon-swipe"
-                        icon2="icon-swipe-2"
+                        contactBtn="contact-btn-page"
+                        userPhoto="user-photo-page"
+                        infoCont="info-container-page"
+                        swipe="d-none"
+                        icon="d-none"
+                        icon2="d-none"
+                        userName="user-name"
                     ></EventItem>
                 })}
             </div>
