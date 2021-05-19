@@ -13,5 +13,9 @@ body {
         display: grid;
         row-gap: 28px;
         overflow-y: scroll;
+        padding-right: 2%;
+        margin-left: -3vw;
+        padding-left: 0;
+
     }
 }
