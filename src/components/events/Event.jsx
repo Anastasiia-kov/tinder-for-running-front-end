@@ -75,10 +75,9 @@ function Event() {
           Change(i, info);
         }}
       />
-
-      <button className="button-2" onClick={onCreateEvent}>
+      {events.length === 0 && <button className="button-2" onClick={onCreateEvent}>
         Create new event
-      </button>
+      </button>}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

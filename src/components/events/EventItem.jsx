@@ -24,7 +24,6 @@ function EventItem (props) {
 
     useEffect(() => {
         getUser()
-        console.log(props.event)
     }, [])
     return (
         <div className={props.container}>
