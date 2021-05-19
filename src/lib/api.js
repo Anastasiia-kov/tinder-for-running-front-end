@@ -3,17 +3,17 @@ import {
     decodeToken
 } from "react-jwt";
 
-export const BaseUrl = "http://127.0.0.1:8080"
+export const BaseUrl = "http://127.0.0.1:4000"
 
 export function getAuthConfig(token) {
     return {
-        headers: { 
+        headers: {
             authorization: 'Bearer ' + token,
         }
     }
 }
 
-export async function signup(first_name, last_name, email, password, confirmPassword, telephone, speed, distance, location) { 
+export async function signup(first_name, last_name, email, password, confirmPassword, telephone, speed, distance, location) {
     const response = await axios.post(`${BaseUrl}/signUp`, {
         user: {
             first_name,
@@ -41,7 +41,7 @@ export async function login(email, password) {
             password
         }
     })
-    console.log(response.data) 
+    console.log(response.data)
     return response.data;
 }
 
@@ -75,7 +75,7 @@ export async function UpdateUser(first_name, last_name, email, password, confirm
     return response.data;
 }
 
-export async function getUserById (accepterId, token) {
+export async function getUserById(accepterId, token) {
     const myDecodedToken = decodeToken(token);
     const response = await axios.get(`${BaseUrl}/user/${accepterId}`, getAuthConfig(token))
     return response

@@ -44,7 +44,7 @@ export default function SignUp() {
   "address", addressRef.current.value
   )
 
-
+console.log('first consolelog')
 if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passwords do not match")
     }
@@ -61,11 +61,17 @@ if (passwordRef.current.value !== passwordConfirmRef.current.value) {
   parseInt(distance),
   addressRef.current.value
   )
+      
+  console.log('second consolelog')
+
+
 
   console.log(response1)
   if (response1){
+    console.log('third consolelog')
 
-  const response = await fetch(`http://0.0.0.0:8080/SignUp/picture_url`,
+
+  const response = await fetch(`http://127.0.0.1:4000/SignUp/picture_url`,
         {
           method: 'PUT',
           body: formData,
