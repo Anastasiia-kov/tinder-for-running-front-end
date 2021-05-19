@@ -11,7 +11,7 @@ import LogIn from "./LogIn"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header >
         <Modal.Title id="contained-modal-title-center">
                  Log In
 </Modal.Title>

@@ -12,7 +12,6 @@ function NewMessageForm(props) {
     const [text, setText] = useState('')
     const [user, setUser] = useState('')
     const chatId = props.chatId
-    // const chatId = "609e868df0baa3c45be3b239"
 
     const getSender = async () => {
         const myDecodedToken = decodeToken(auth.token);

@@ -32,36 +32,30 @@ class SwipeContainer extends React.Component {
   }
 
   render() {
-    // console.log("hi !!!");
-    // console.log("this.props.item");
-    // console.log(this.props.item);
     return (
       <div style={{ position: "absolute", width: "100%", left: "0px" }}>
         <ReactSwipeableViews
           enableMouseEvents
           index={1}
-          // onSwitching
-          // onTransitionEnd={(e) => {
-          //   this.props.Change(e);
-          //   // console.log(e);
-          // }}
           onChangeIndex={(e) => {
-            // console.clear();
             this.props.Change(e, this.props.item);
-            // console.log(this.props);
-            // console.log(e);
           }}
         >
           <div style={Object.assign({}, styles.slide, styles.slide1)}>
             Swiped right
           </div>
-          {/* <div style={Object.assign({}, styles.slide, styles.slide2)}>
-            my name is {this.props.name}, swipe it :)
-          </div> */}
           <EventItem
-            // style={{ backgroundColor: "#fff!important" }}
             key={this.props.item._id}
             event={this.props.item}
+            container="event-item-container"
+            eventTitle="event-title"
+            contactBtn="contact-btn"
+            userPhoto="user-photo"
+            infoCont="info-container"
+            swipe="swipe"
+            icon="icon-swipe"
+            icon2="icon-swipe-2"
+            userName="d-none"
           ></EventItem>
           <div style={Object.assign({}, styles.slide, styles.slide3)}>
             Swiped left

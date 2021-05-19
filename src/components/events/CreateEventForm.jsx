@@ -24,12 +24,9 @@ function CreateEventForm() {
             },
             title: title
         }
-        console.log(notify)
-        console.log(auth.token)
-        const response = await createEvent(notify, auth.token)
+        await createEvent(notify, auth.token)
         let path = '/events'
         history.push(path)
-        console.log(response.data.notify)
     }
     return (
         <div className="main-container2">
@@ -42,14 +39,14 @@ function CreateEventForm() {
                 <label className="eventlabel">Distance</label><br></br>
                 <input type="number" onChange={e => setDistance(e.target.value)} required></input><br></br>
                 <label className="eventlabel">Speed</label><br></br>
-                <select value={speed} onChange={e => setSpeed(e.target.value)}>
+                <select value={speed} onChange={e => setSpeed(e.target.value)} className="smth">
                     <option value='slow' onChange={e => setSpeed(e.target.value)}>Slow</option>
                     <option value="normal" onChange={e => setSpeed(e.target.value)}>Normal</option>
                     <option value="fast" onChange={e => setSpeed(e.target.value)}>Fast</option>
                 </select><br></br>
                 <label className="eventlabel">Location</label><br></br>
                 <input type="text" onChange={e => setLocation(e.target.value)} required></input><br></br>
-                <button type="submit" className="button2 m-20">Create</button>
+                <button type="submit" className="create-event-btn">Create</button>
             </form>
         </div>
     )
