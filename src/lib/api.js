@@ -96,7 +96,7 @@ export async function getUserById(accepterId, token) {
 //   const myDecodedToken = decodeToken(token);
   const response = await axios.get(
     `${BaseUrl}/user/${accepterId}`,
-    getAuthConfig(token)
+git     getAuthConfig(token)
   );
   return response;
 }

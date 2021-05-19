@@ -17,10 +17,13 @@ export default function Login() {
         setError('')
         const { token }= await login(emailRef.current.value,passwordRef.current.value)
         await auth.saveToken(token)
+        if (token){
+        window.location.reload();}
         setLoading(true)
           
-      } catch {
-        setError('Failed to sign in')
+      } catch (err) {
+        
+        setError(err.response.data)
       }
     }
   }

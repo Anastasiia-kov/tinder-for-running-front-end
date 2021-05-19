@@ -15,11 +15,19 @@ export default function SignUp() {
   const pictureUrl = useRef()
   const formData = new FormData()
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [error, setError] = useState([])
   const [distance, setDistance] = useState(0)
+<<<<<<< HEAD
   const handleChange = (val) => {
     setStylerun(val.target.value)
   };
+=======
+ 
+  const handleChange = (val) => {
+   console.log(val.target.value)
+    setStylerun(val.target.value)   
+    };
+>>>>>>> a0352bc280bf6f7203ad77a8d251db26c5c23672
 
 
   async function handleSubmit(e) {
@@ -42,6 +50,7 @@ export default function SignUp() {
     try {
       setError('')
       const response1 = await signup(
+<<<<<<< HEAD
         firstnameRef.current.value,
         lastnameRef.current.value,
         emailRef.current.value,
@@ -64,6 +73,40 @@ export default function SignUp() {
       setLoading(true)
     } catch {
       setError('Failed to create an account')
+=======
+  firstnameRef.current.value,
+  lastnameRef.current.value,
+  emailRef.current.value, 
+  passwordRef.current.value,
+  passwordConfirmRef.current.value,
+  phoneRef.current.value,
+  stylerun,
+  parseInt(distance),
+  addressRef.current.value
+  )
+  
+  if (response1 && file){
+      const response = await fetch(`http://0.0.0.0:4000/SignUp/picture_url`,
+        {
+          method: 'PUT',
+          body: formData,
+          headers:new Headers({'Authorization': response1.token}) 
+        })
+        
+          const data = await response.json()
+          console.log(data)
+          alert('Account has been created successfully with picture');
+
+        window.location.reload()}
+else { 
+  alert('Account has been created successfully');
+  window.location.reload() }
+  
+      
+    setLoading(true)
+    } catch (err) {
+      setError(err.response.data)
+>>>>>>> a0352bc280bf6f7203ad77a8d251db26c5c23672
     }
     setLoading(false)
   }
@@ -71,7 +114,7 @@ export default function SignUp() {
     <>
       <Card>
         <Card.Body>
-          {error && <Alert variant="danger">{error}</Alert>}
+        
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
@@ -157,10 +200,12 @@ export default function SignUp() {
             <Form.Group>
               <Form.File id="exampleFormControlFile1" onChange={() => setFiles(pictureUrl.current.files[0])} ref={pictureUrl} label="Example file input" />
             </Form.Group>
+            {error && <Alert variant="danger">{error}</Alert>}
 
             <Button disabled={loading} className="w-100 mt-3" type="submit">
               Sign Up
             </Button>
+
           </Form>
         </Card.Body>
       </Card>
