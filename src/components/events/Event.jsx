@@ -18,6 +18,7 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    background: "rgb(224, 106, 189)"
   },
 };
 
@@ -74,9 +75,6 @@ function Event() {
           Change(i, info);
         }}
       />
-      {/* <div className="title-main">
-        𝓓𝓸 𝔂𝓸𝓾 <br></br>𝔀𝓪𝓷𝓽 𝓽𝓸 𝓻𝓾𝓷 <br></br>𝓽𝓸𝓭𝓪𝔂?
-      </div> */}
 
       <button className="button-2" onClick={onCreateEvent}>
         Create new event
