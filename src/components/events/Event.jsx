@@ -37,8 +37,9 @@ function Event() {
   };
   const history = useHistory();
   useEffect(() => {
-    getEventsOfUser();
-  }, []);
+    const unMountGetEventsOfUser = getEventsOfUser();
+    return unMountGetEventsOfUser;
+  });
 
   const onCreateEvent = () => {
     setIsOpen(true);
@@ -49,8 +50,7 @@ function Event() {
   };
 
   const Change = async (index, info) => {
-    const swipe = index === 2 ? "Swiped left" : "Swiped right";
-
+    // const swipe = index === 2 ? "Swiped left" : "Swiped right";   2 means left and 0 means right
     setEvents(events.slice(1));
 
     const creatChatwithUser = async () => {

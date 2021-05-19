@@ -1,4 +1,4 @@
-import { set } from "date-fns/esm";
+// import { set } from "date-fns/esm";
 import React from "react";
 import SwipeContainer from "./SwipeContainer";
 
@@ -18,12 +18,11 @@ class SwipeList extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         {
           this.props.events.map((item, i) => {
-            if (i === 0)
+            if (i === 0) {
               return (
                 <SwipeContainer
                   item={item}
@@ -31,6 +30,7 @@ class SwipeList extends React.Component {
                   Change={(e, info) => this.props.Change(e, info)}
                 />
               );
+            }
           })
         }
       </div>

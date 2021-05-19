@@ -40,12 +40,12 @@ function ChatPage(props) {
 
     useEffect(() => {
         getChat()
+    })
 
-    }, [])
-
-    const handleonNewMessage = (post) => {
+    const handleonNewMessage = () => {
         getChat()
     }
+
     return(
         <div className="chat">
             <div className="accepter">{user.first_name} {user.last_name}</div>

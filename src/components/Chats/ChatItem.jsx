@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
-import {getUserById} from '../../lib/api'
-import {Link} from 'react-router-dom'
+import { getUserById } from '../../lib/api'
+import { Link } from 'react-router-dom'
 import '../../css/ChatItem.css'
 import {
     decodeToken
 } from "react-jwt";
 
-function ChatItem (props) {
+function ChatItem(props) {
     const auth = useAuth()
     const { chat } = props
     const [user, setUser] = useState('')
     const myDecodedToken = decodeToken(auth.token);
-    const senderId = myDecodedToken.uid
+    const senderId = myDecodedToken.uid;
+    const link = `/chat/${chat._id}`;
 
     const getAccepter = async () => {
         let accepterId = '';
@@ -22,26 +23,27 @@ function ChatItem (props) {
         if (senderId !== chat.send_user_id) {
             accepterId = chat.send_user_id
         }
-        const response = await getUserById (accepterId, auth.token)
+        const response = await getUserById(accepterId, auth.token)
         setUser(response.data)
     }
 
-    let link = `/chat/${chat._id}`;
-
     useEffect(() => {
-        getAccepter()
-    }, [])
+        const unMountGetAccepter = getAccepter();
+        return unMountGetAccepter;
+    })
+
+
     return (
-        <Link 
-        to={link} 
-        className='link'>
-        <div className="chat-container">
-        <img src={user.picture} className="user-picture"></img>
-        <div className="user-name">{user.first_name} {user.last_name}</div>
-        </div>
-        <hr className="line"></hr>
+        <Link
+            to={link}
+            className='link'>
+            <div className="chat-container">
+                <img src={user.picture} className="user-picture" alt="profile"></img>
+                <div className="user-name">{user.first_name} {user.last_name}</div>
+            </div>
+            <hr className="line"></hr>
         </Link>
- 
+
     )
 }
 

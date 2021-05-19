@@ -15,20 +15,18 @@ function ProfilePage() {
   const [stylerun, setStylerun] = useState("")
   const addressRef = useRef()
   const [distance, setDistance] = useState(0)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState("")
   const [error, setError] = useState("")
-useEffect(() => {
+
+  useEffect(() => {
     SetInitialized(false)
     getUserInfo(auth.token)
       .then(user => {
         setUser(user)
-
-
       });
     SetInitialized(true)
-
-  }, []);
+  }, [auth.token]); // this was changed if throw now errors
 
 
   const handleChange = (val) => {   

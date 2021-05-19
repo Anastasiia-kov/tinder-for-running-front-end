@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import ChatsList from './ChatsList'
 import { useAuth } from '../../context/AuthContext'
-import {getAllChatsOfUser} from '../../lib/chat'
+import { getAllChatsOfUser } from '../../lib/chat'
 import '../../css/ChatsPage.css'
 
 function ChatsPage() {
     const auth = useAuth()
-    const [ chats, setChats ] = useState([])
+    const [chats, setChats] = useState([])
 
     const getAllChats = async () => {
         const response = await getAllChatsOfUser(auth.token)
@@ -15,8 +15,10 @@ function ChatsPage() {
         setChats(arrReverse)
     }
     useEffect(() => {
-        getAllChats()
-    }, [])
+        const unMountGetAllChats = getAllChats();
+        return unMountGetAllChats;
+    })
+
     return (
         <div className="chats-container">
             <ChatsList chats={chats}></ChatsList>

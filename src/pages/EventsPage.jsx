@@ -12,12 +12,13 @@ function EventsPage() {
 
     const getEventsOfUser = async () => {
         const response = await getAllEventsOfUser(auth.token)
-        setEvents(response.data)  
+        setEvents(response.data)
     }
 
     useEffect(() => {
-        getEventsOfUser()
-    }, []) 
+        const unMountGetEventsOfUser = getEventsOfUser();
+        return unMountGetEventsOfUser;
+    })
 
     const onChangeEvents = async () => {
         if (myEvents) {

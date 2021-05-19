@@ -1,8 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import localforage from 'localforage';
 
-
-
 export const AuthContext = React.createContext({
   isInitiallyLoaded: false,
   user: '',
@@ -11,13 +9,11 @@ export const AuthContext = React.createContext({
   removeToken: async () => { }
 })
 
-
 export function useAuth() {
   return useContext(AuthContext)
 }
 
 const tokenKey = 'userToken';
-
 
 export default function AuthProvider(props) {
   const [isInitiallyLoaded, setIsInitiallyLoaded] = useState(false);
