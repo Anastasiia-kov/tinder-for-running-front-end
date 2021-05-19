@@ -37,7 +37,7 @@ body {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color:#747579;
+    background-color: #db5ac6;
     border-radius: 6px;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -52,7 +52,7 @@ body {
     display: block;
   }
   
-  .dropdown-content a:hover {background-color: #363A44;; color: #ffff}
+  .dropdown-content a:hover {background-color: #DD35AE;; color: #ffff}
   
   .dropdown:hover .dropdown-content {display: block;}
 

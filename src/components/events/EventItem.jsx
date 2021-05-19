@@ -28,7 +28,10 @@ function EventItem (props) {
     }, [])
     return (
         <div className={props.container}>
+            <div className='d-flex'>
             <img src={user.picture} alt="" className={props.userPhoto}></img>
+            <div className={props.userName}>{user.first_name} {user.last_name}</div>
+            </div>
     <div className={props.eventTitle}>{props.event.title}</div>
     <div className={props.infoCont}>
     <div className="">Time: {props.event.running.date}</div>

@@ -55,6 +55,7 @@ class SwipeContainer extends React.Component {
             swipe="swipe"
             icon="icon-swipe"
             icon2="icon-swipe-2"
+            userName="d-none"
           ></EventItem>
           <div style={Object.assign({}, styles.slide, styles.slide3)}>
             Swiped left

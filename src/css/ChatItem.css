@@ -22,7 +22,8 @@ body {
     }
 
     .line {
-        border: 1px #363A44;
+        border-top: 3px solid #fff;
+
     }
 
     .user-name {
