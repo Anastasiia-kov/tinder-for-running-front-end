@@ -47,6 +47,14 @@ class SwipeContainer extends React.Component {
           <EventItem
             key={this.props.item._id}
             event={this.props.item}
+            container="event-item-container"
+            eventTitle="event-title"
+            contactBtn="contact-btn"
+            userPhoto="user-photo"
+            infoCont="info-container"
+            swipe="swipe"
+            icon="icon-swipe"
+            icon2="icon-swipe-2"
           ></EventItem>
           <div style={Object.assign({}, styles.slide, styles.slide3)}>
             Swiped left
