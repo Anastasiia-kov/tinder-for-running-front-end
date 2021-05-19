@@ -21,7 +21,7 @@ function NewMessageForm(props) {
     useEffect(() => {
         const unMountGetSender = getSender();
         return unMountGetSender;        
-    })
+    }, [getSender])
 
     const handleFormSubmit = async (event) => {
         event.preventDefault()

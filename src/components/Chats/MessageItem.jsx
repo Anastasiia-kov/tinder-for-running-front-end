@@ -18,7 +18,7 @@ function MessageItem(props) {
         } else {
             setMessStyle('message-container-2')
         }
-    }, [message.creator_id, senderId])// this was changed if throw new error
+    }, [])// this was changed if throw new error
 
     return (
         <div className={messStyle}>

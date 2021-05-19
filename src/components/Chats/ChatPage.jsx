@@ -39,8 +39,9 @@ function ChatPage(props) {
       });
 
     useEffect(() => {
-        getChat()
-    })
+        const unMountGetchat = getChat()
+        return unMountGetchat;
+    }, [])
 
     const handleonNewMessage = () => {
         getChat()

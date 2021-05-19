@@ -39,7 +39,7 @@ function Event() {
   useEffect(() => {
     const unMountGetEventsOfUser = getEventsOfUser();
     return unMountGetEventsOfUser;
-  });
+  }, []);
 
   const onCreateEvent = () => {
     setIsOpen(true);

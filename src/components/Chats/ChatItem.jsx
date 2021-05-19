@@ -30,7 +30,7 @@ function ChatItem(props) {
     useEffect(() => {
         const unMountGetAccepter = getAccepter();
         return unMountGetAccepter;
-    })
+    }, [])
 
 
     return (

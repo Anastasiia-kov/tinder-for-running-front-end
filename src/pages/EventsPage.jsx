@@ -18,7 +18,7 @@ function EventsPage() {
     useEffect(() => {
         const unMountGetEventsOfUser = getEventsOfUser();
         return unMountGetEventsOfUser;
-    })
+    }, [])
 
     const onChangeEvents = async () => {
         if (myEvents) {

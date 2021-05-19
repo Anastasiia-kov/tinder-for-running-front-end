@@ -17,7 +17,7 @@ function ChatsPage() {
     useEffect(() => {
         const unMountGetAllChats = getAllChats();
         return unMountGetAllChats;
-    })
+    }, [])
 
     return (
         <div className="chats-container">
