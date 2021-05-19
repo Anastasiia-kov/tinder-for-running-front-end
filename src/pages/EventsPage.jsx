@@ -12,7 +12,6 @@ function EventsPage() {
 
     const getEventsOfUser = async () => {
         const response = await getAllEventsOfUser(auth.token)
-        console.log(response.data)
         setEvents(response.data)  
     }
 
@@ -25,7 +24,6 @@ function EventsPage() {
             setBtnValue('See my events')
             setMyEvents(false)
             const response = await getAllEventsFromDB(auth.token)
-            console.log(response.data)
             setEvents(response.data)
         }
         if (!myEvents) {

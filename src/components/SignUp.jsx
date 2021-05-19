@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react"
 import {Col,Row,Form, Button, Card, Alert } from "react-bootstrap"
 import {signup} from "../lib/api"
-import { decodeToken } from "react-jwt";
 import { useAuth } from '../context/AuthContext'
 
 export default function SignUp() {
@@ -15,16 +14,20 @@ export default function SignUp() {
   const addressRef = useRef()
   const [file, setFiles] = useState(null)
   const pictureUrl = useRef()
-    const auth = useAuth()
+
 
   const formData = new FormData()
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState([])
   const [distance, setDistance] = useState(0)
+<<<<<<< HEAD
  
   const handleChange = (val) => {
    console.log(val.target.value)
+=======
+ const handleChange = (val) => {
+>>>>>>> 6e1cd49e9d65e032b984354716a2c8ce6cf2ed6f
     setStylerun(val.target.value)   
     };
 

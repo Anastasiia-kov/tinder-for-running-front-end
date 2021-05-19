@@ -9,18 +9,35 @@ body {
 
 
 @media only screen and (max-width: 400px) {
-    .log-sign-btn {
-        background-color: #363A44;;
-        border: 2px solid #363A44;;
-        border-radius: 6px;
-        color: white;
-        height: 40px;
-        width: 120px;
-        font-size: 25px;
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .log-btn {
+        background-color: #DD35AE;
+        border: 2px solid #DD35AE;
+        border-radius: 25px;
+        color: #D2C4C4;
+        height: 76px;
+        width: 306px;
+        font-size: 36px;
+        font-weight: bold;
         margin: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .sign-btn {
+        color: #530070;
+        font-size: 24px;
+        font-weight: bold;
+        border: none;
+        background-color: transparent;
+        margin-bottom: 70px;
     }
 
     .t-homepage {

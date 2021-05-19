@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import '../../css/MessageItem.css'
-import format from 'date-fns/format'
 import {
     decodeToken
 } from "react-jwt";
