@@ -10,15 +10,11 @@ body {
 
 @media only screen and (max-width: 400px) {
   .navbar {
-    background: #363A44;  
-    /* background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC); 
-    background: linear-gradient(to right, #5B86E5, #36D1DC); */
+    background: #DD35AE;  
+    height: 70px;
   }
   .dropbtn {
     background: none;
-    /* background-image: url('../Icons/menu.png'); */
-    /* background-size: cover; */
-    /* color: white; */
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -27,11 +23,10 @@ body {
   }
 
   .icon {
+    background-image: url('../Icons/runningicon.png');
+    background-size: cover;
     height: 35px;
     width: 35px;
-    background-color: #363A44;  
-    /* background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC); 
-    background: linear-gradient(to right, #5B86E5, #36D1DC); */
   }
   
   .dropdown {
@@ -63,10 +58,10 @@ body {
 
   .log-out-btn {
     border: none;
-    background-color: #363A44;
+    background-color: transparent;
     color: #fff;
-    margin-left: 230px;
-    font-size: 20px;
+    font-size: 25px;
+    margin-left: 200px;
   }
   
   }

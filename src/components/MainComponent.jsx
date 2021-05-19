@@ -11,10 +11,11 @@ import {
 import ProfilePage from '../pages/ProfilePage';
 import ChatsPage from './Chats/ChatsPage';
 import ChatPage from './Chats/ChatPage'
+import '../css/MainComponent.css'
 
 function MainComponent() {
     return (
-        <div className="App" >
+        <div className="app" >
         <Router>
         <Navbar/>
         <Switch>
@@ -27,13 +28,13 @@ function MainComponent() {
         <Route exact path ="/chats">
             <ChatsPage />
         </Route> 
-        <Route exact path ="/chat">
+        <Route exact path ="/chat/:chatId">
             <ChatPage />
         </Route> 
         <Route exact path ="/profile">
             <ProfilePage />
         </Route> 
-        </Switch>
+        </Switch> 
         </Router>
 
     </div>

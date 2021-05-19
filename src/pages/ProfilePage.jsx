@@ -18,14 +18,12 @@ function ProfilePage() {
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState("")
   const [error, setError] = useState("")
-console.log(auth.token)
 useEffect(() => {
     SetInitialized(false)
     getUserInfo(auth.token)
       .then(user => {
         setUser(user)
-        console.log(user)
-          console.log(user.sports[0].running.location)
+
 
       });
     SetInitialized(true)
@@ -33,9 +31,7 @@ useEffect(() => {
   }, []);
 
 
-  const handleChange = (val) => {
-   console.log(val.target.value)
-   
+  const handleChange = (val) => {   
     setStylerun(val.target.value)   
     };
 

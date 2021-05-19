@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react"
 import {Col,Row,Form, Button, Card, Alert } from "react-bootstrap"
 import {signup} from "../lib/api"
-import { decodeToken } from "react-jwt";
 import { useAuth } from '../context/AuthContext'
 
 export default function SignUp() {
@@ -15,16 +14,14 @@ export default function SignUp() {
   const addressRef = useRef()
   const [file, setFiles] = useState(null)
   const pictureUrl = useRef()
-    const auth = useAuth()
+
 
   const formData = new FormData()
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [distance, setDistance] = useState(0)
-  console.log(typeof(parseInt(distance) ))
  const handleChange = (val) => {
-   console.log(val.target.value)
     setStylerun(val.target.value)   
     };
 
@@ -66,7 +63,6 @@ if (passwordRef.current.value !== passwordConfirmRef.current.value) {
 
 
 
-  console.log(response1)
   if (response1){
     console.log('third consolelog')
 
@@ -77,8 +73,7 @@ if (passwordRef.current.value !== passwordConfirmRef.current.value) {
           body: formData,
           headers:new Headers({'Authorization': response1.token}) 
         })
-      const data = await response.json()
-      console.log(data)
+      await response.json()
       }
   setLoading(true)
     } catch {

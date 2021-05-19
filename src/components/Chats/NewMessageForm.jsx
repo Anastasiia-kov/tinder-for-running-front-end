@@ -11,12 +11,11 @@ function NewMessageForm(props) {
     const auth = useAuth()
     const [text, setText] = useState('')
     const [user, setUser] = useState('')
-    const chatId = "609e868df0baa3c45be3b239"
+    const chatId = props.chatId
 
     const getSender = async () => {
         const myDecodedToken = decodeToken(auth.token);
         const response = await getUserById(myDecodedToken.uid, auth.token)
-        console.log(response.data)
         setUser(response.data)
     }
     useEffect(() => {
