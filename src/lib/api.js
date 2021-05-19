@@ -1,7 +1,7 @@
 import axios from "axios";
 import { decodeToken } from "react-jwt";
 
-export const BaseUrl = "http://127.0.0.1:8080";
+export const BaseUrl = "http://127.0.0.1:4000";
 
 export function getAuthConfig(token) {
   return {
