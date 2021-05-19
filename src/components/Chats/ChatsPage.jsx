@@ -10,7 +10,6 @@ function ChatsPage() {
 
     const getAllChats = async () => {
         const response = await getAllChatsOfUser(auth.token)
-        console.log(response.data)
         const arr = response.data
         const arrReverse = arr.reverse()
         setChats(arrReverse)

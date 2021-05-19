@@ -1,12 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import MainComponent from './components/MainComponent';
 import Homepage from './pages/Homepage';
 import AuthProvider,{ useAuth} from "./context/AuthContext";
 
 function AppRouter() {
     let auth = useAuth();
-    console.log(auth.token)
-    const [login, setLogin] = useState(true)
     return ( 
     <div>
         <AuthProvider >

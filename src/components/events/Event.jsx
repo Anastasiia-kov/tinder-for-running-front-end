@@ -5,7 +5,6 @@ import CreateEventForm from "./CreateEventForm";
 import { getAllEventsFromDB, addUserIdResponse } from "../../lib/event";
 import { useAuth } from "../../context/AuthContext";
 import SwipeList from "./SwipeList";
-import axios from "axios";
 import { creatChat } from "../../lib/chat";
 import { useHistory } from "react-router-dom";
 import { decodeToken } from "react-jwt";
@@ -55,9 +54,7 @@ function Event() {
     setEvents(events.slice(1));
 
     const creatChatwithUser = async () => {
-      //create chat with user who created a notify
       const response = await creatChat(auth.token, info.userId);
-
       let path = `/chat/${response.data._id}`;
       history.push(path);
     };
@@ -77,11 +74,11 @@ function Event() {
           Change(i, info);
         }}
       />
-      <div className="title-main">
+      {/* <div className="title-main">
         𝓓𝓸 𝔂𝓸𝓾 <br></br>𝔀𝓪𝓷𝓽 𝓽𝓸 𝓻𝓾𝓷 <br></br>𝓽𝓸𝓭𝓪𝔂?
-      </div>
+      </div> */}
 
-      <button className="button2" onClick={onCreateEvent}>
+      <button className="button-2" onClick={onCreateEvent}>
         Create new event
       </button>
       <Modal

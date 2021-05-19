@@ -24,12 +24,9 @@ function CreateEventForm() {
             },
             title: title
         }
-        console.log(notify)
-        console.log(auth.token)
-        const response = await createEvent(notify, auth.token)
+        await createEvent(notify, auth.token)
         let path = '/events'
         history.push(path)
-        console.log(response.data.notify)
     }
     return (
         <div className="main-container2">

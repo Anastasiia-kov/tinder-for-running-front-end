@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useInterval} from 'react'
+import React, {useEffect, useState} from 'react'
 import MessagesList from './MessagesList'
 import NewMessageForm from './NewMessageForm'
 import '../../css/Chat.css'
@@ -15,13 +15,11 @@ function ChatPage(props) {
     const auth = useAuth()
     const [messages, setMessages] = useState([])
     const [user, setUser] = useState('')
-    // const chatId = "609e868df0baa3c45be3b239"
     const { match: { params } } = props;
 
     const getChat = async () => {
         let accepterId = ""
         const response = await getChatById(params.chatId, auth.token)
-        console.log(response.data)
         setMessages(response.data.posts)
         if(decodeToken(auth.token).uid === response.data.send_user_id) {
             accepterId = response.data.accept_user_id
@@ -46,7 +44,6 @@ function ChatPage(props) {
     }, [])
 
     const handleonNewMessage = (post) => {
-        console.log(post)
         getChat()
     }
     return(
