@@ -9,6 +9,7 @@
         "axios": "^0.21.1",
         "bootstrap": "^5.0.0",
         "date-fns": "^2.21.3",
+        "firebase-tools": "^9.11.0",
         "localforage": "^1.9.0",
         "react": "^17.0.2",
         "react-bootstrap": "^1.6.0",

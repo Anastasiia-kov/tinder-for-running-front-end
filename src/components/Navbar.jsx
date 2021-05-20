@@ -26,9 +26,10 @@ const Navbar = () => {
           <Link to="/chats">Chats</Link>
           <Link to="/profile">Profile</Link>
            </div>
-        {auth.token && <button className="log-out-btn" type="submit" onClick={handleSignOut}>Log Out</button>}
-
+        
       </div>
+      {auth.token && <button className="log-out-btn" type="submit" onClick={handleSignOut}>Log Out</button>}
+
         </div>
   )
 }
