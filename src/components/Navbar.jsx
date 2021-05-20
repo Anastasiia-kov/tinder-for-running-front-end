@@ -7,6 +7,7 @@ const Navbar = () => {
   const auth = useAuth()
   async function handleSignOut() {
     await auth.removeToken()
+    window.location.reload()
   }
 
   return (

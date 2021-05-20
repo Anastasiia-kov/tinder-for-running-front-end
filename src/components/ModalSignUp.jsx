@@ -11,7 +11,7 @@ import SignUp from "./SignUp"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header >
         <Modal.Title id="contained-modal-title-center">
           Sign Up
         </Modal.Title>
@@ -20,7 +20,7 @@ import SignUp from "./SignUp"
         <SignUp />
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button style= {{backgroundColor: "#DD35AE",border: "#DD35AE" }} onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
     </div>

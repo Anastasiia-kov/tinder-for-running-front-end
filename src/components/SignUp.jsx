@@ -72,7 +72,6 @@ if (passwordRef.current.value !== passwordConfirmRef.current.value) {
           const data = await response.json()
           console.log(data)
           alert('Account has been created successfully with picture');
-
         window.location.reload()}
 else { 
   alert('Account has been created successfully');
@@ -105,7 +104,7 @@ else {
             </Form.Group>
             <Form.Group id="password">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} />
+              <Form.Control minLength="6" type="password" ref={passwordRef} />
             </Form.Group>
             <Form.Group id="password-confirm">
               <Form.Label>Password Confirmation</Form.Label>
@@ -177,7 +176,7 @@ value={distance}
             </Form.Group>
             {error && <Alert variant="danger">{error}</Alert>}
 
-            <Button disabled={loading} className="w-100 mt-3" type="submit">
+            <Button style= {{backgroundColor: "#DD35AE",border: "#DD35AE" }} disabled={loading} className="w-100 mt-3" type="submit">
               Sign Up
             </Button>
 
